@@ -1,0 +1,39 @@
+# Initialize the arrays for the student IDs, correct scores, grades, and highest score.
+student_ids = []
+correct_scores = []
+grades = []
+highest_score = 0
+
+# For each student, enter their ID and test answers.
+for student in range(1, 36):
+  student_id = input("Enter the student ID: ")
+  correct_score = 0
+  for question in range(1, 21):
+    answer = input("Enter the answer to question {} (T/F): ".format(question))
+    if answer == "T":
+      correct_score += 1
+
+  # Calculate the student's score and grade.
+  score = correct_score / 20
+  if score >= 1.0:
+    grade = "A"
+  elif score >= 0.8:
+    grade = "B"
+  elif score >= 0.6:
+    grade = "C"
+  elif score >= 0.4:
+    grade = "D"
+  else:
+    grade = "F"
+
+  # Update the highest score if the student's score is higher than the current highest score.
+  if score > highest_score:
+    highest_score = score
+
+  # Output the student's ID, number correct, and grade.
+  print("Student ID: {}".format(student_id))
+  print("Number correct: {}".format(correct_score))
+  print("Grade: {}".format(grade))
+
+# Output the highest score.
+print("Highest score: {}".format(highest_score))
